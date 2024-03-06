@@ -7,6 +7,15 @@ terraform {
   }
 }
 
+terraform {
+backend "azurerm" {
+    resource_group_name   = "StateFileRG"
+    storage_account_name  = "statefilestorage01"
+    container_name        = "tstate"
+    key                   = "terraform.tfstate"
+    }
+}
+
 provider "azurerm" {
   features {}
 }
